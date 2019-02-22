@@ -1,9 +1,23 @@
 <h2><%= @cocktail.name %></h2>
 
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.ingredient.name %> | <%= dose.description %> | <%= link_to "Destroy", dose_path, method: "delete" %></li>
+<ul style="list-style-type:none;">
+  <li>
+    <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+    <% @cocktail.doses.each do |dose| %> <br> <br>
+    <%= dose.ingredient.name %>: <%= dose.description %> | <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, dose_path, method: "delete" %> </li>
   <% end %>
 </ul>
+
+
+<br>
+<br>
+<%#= simple_form_for @cocktail do |form| %>
+<!-- <p><%#= form.input :photo %></p>
+<p><%#= form.input :photo_cache, as: :hidden %></p>
+
+<br>
+<br> -->
+<%#= form.submit "Submit" %>
+<%# end %>
 
 <%= link_to "return", cocktails_path%>

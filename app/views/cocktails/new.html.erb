@@ -1,10 +1,12 @@
 <h2>Add a cocktail:</h2>
 <%= simple_form_for @cocktail do |form| %>
 <p><%= form.input :name %></p>
+<p><%= form.input :photo %></p>
+<p><%= form.input :photo_cache, as: :hidden %></p>
 
 <br>
 <br>
-<%= form.submit "Submit", class: "btn btn-primary" %>
+<%= form.submit "Submit", class: "btn btn-flat" %>
 <% end %>
 
 <%= link_to "return", cocktails_path%>
